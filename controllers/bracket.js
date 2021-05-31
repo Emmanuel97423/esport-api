@@ -6,14 +6,16 @@ const { BracketsManager, JsonDatabase } = require("brackets-manager");
 const storage = new JsonDatabase();
 const manager = new BracketsManager(storage);
 
-chai.use(require("chai-as-promised"));
+const bracketDb = require("../storage/bracket.json");
 
+chai.use(require("chai-as-promised"));
+//Double Elimination
 exports.doubleElimination = (req, res, next) => {
   storage.reset();
 
   manager.create({
     name: "Shap",
-    tournamentId: 6,
+    tournamentId: 1,
     type: "double_elimination",
     seeding: [
       "Team 1",
@@ -44,4 +46,8 @@ exports.doubleElimination = (req, res, next) => {
   assert.strictEqual(storage.select("group").length, 3);
   assert.strictEqual(storage.select("round").length, 4 + 6 + 1);
   assert.strictEqual(storage.select("match").length, 30);
+};
+//Data Storage
+exports.storage = (req, res, next) => {
+  res.send(bracketDb);
 };
