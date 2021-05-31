@@ -1,5 +1,7 @@
 const express = require("express");
 const userRoute = require("./routes/user");
+const tournamentRoute = require("./routes/tournament");
+const bracketRoute = require("./routes/bracket");
 const mongoose = require("mongoose");
 
 const app = express();
@@ -36,5 +38,7 @@ app.use(express.json());
 
 //Routage
 app.use("/api/auth", userRoute);
+app.use("/api", tournamentRoute);
+app.use("/api", bracketRoute);
 
 module.exports = app;
