@@ -4,7 +4,7 @@ const ObjectId = mongoose.Schema.ObjectId;
 
 const userSchema = mongoose.Schema({
   userId: { type: ObjectId, ref: "User" },
-  pseudo: { type: String, required: true, default: "Vulcain" },
+  pseudo: { type: String, required: false, default: "Vulcain" },
   email: { type: String, required: true },
   password: { type: String, required: true },
 });

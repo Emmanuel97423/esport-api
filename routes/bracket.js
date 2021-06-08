@@ -4,7 +4,7 @@ const bracketCtrl = require("../controllers/bracket");
 
 //const passwordValidator = require("../middleware/passwordValidator");
 
-router.post("/bracket/de/123", bracketCtrl.doubleElimination);
+router.post("/bracket/de/123", bracketCtrl.createDoubleElimination);
 //router.post("/login", userCtrl.login);
 router.get("/bracket", bracketCtrl.storage);
 
