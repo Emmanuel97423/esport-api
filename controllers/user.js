@@ -4,10 +4,10 @@ const User = require("../models/User");
 //const maskemail = require("maskemail");
 
 exports.signup = (req, res, next) => {
-  if (!req.body.email) {
+  if (!req.body.email || !req.body.password) {
     return res
       .status(401)
-      .json({ message: "Le formulaire ne peut pas être vide" });
+      .json({ message: "Veulliez remplir tout le formulaire" });
   } else {
     User.findOne({ email: req.body.email }).then((email) => {
       if (email) {
