@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bracketCtrl = require("../controllers/bracket");
+const bracketCtrl = require("../controllers/bracket.controller");
 
 //const passwordValidator = require("../middleware/passwordValidator");
 
