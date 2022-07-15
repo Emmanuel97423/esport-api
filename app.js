@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoute = require("./routes/user");
+const bracketRoute = require("./routes/bracketing")
 const mongoose = require("mongoose");
 
 const app = express();
@@ -15,6 +16,8 @@ mongoose
   })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch((error) => console.log("Connexion à MongoDB échouée !: " + error));
+
+ 
 
 //Requête CORS
 app.use((req, res, next) => {
@@ -36,5 +39,6 @@ app.use(express.json());
 
 //Routage
 app.use("/api/auth", userRoute);
+app.use("/api/bracket", bracketRoute)
 
 module.exports = app;
